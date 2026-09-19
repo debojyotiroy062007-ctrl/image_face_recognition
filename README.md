@@ -1,39 +1,20 @@
-﻿# Face Detection and Recognition 
+# Image Face Recognition (LBPH)
 
-A Computer Vision project developed using **OpenCV** to perform face detection and identification on static images using Haar Feature-based Cascade Classifiers and Local Binary Patterns Histograms (LBPH).
+A Computer Vision pipeline developed using OpenCV to perform face detection and identification on static images using Haar Feature-based Cascade Classifiers and Local Binary Patterns Histograms (LBPH).
 
 ## Features
-- **Face Detection:** Leverages OpenCV's pre-trained Haar Cascade (haarcascade_frontalface_default.xml) to localize frontal faces.
-- **Face Recognition:** Uses cv2.face.LBPHFaceRecognizer trained on reference images to predict identity along with confidence scores.
-- **Visual Feedback:** Annotates detected faces with green bounding boxes and predicted names directly on the output image.
+
+- **Face Detection:** Leverages OpenCV's pre-trained Haar Cascade (`haarcascade_frontalface_default.xml`) to localize frontal faces.
+- **Face Recognition:** Trains an LBPH recognizer (`cv2.face.LBPHFaceRecognizer_create`) on reference images to predict identity along with confidence scores.
+- **Visual Output:** Annotates detected faces with green bounding boxes and predicted names directly on the target image, saving the output to `output_result.jpg`.
 
 ## Project Structure
-\\\	ext
-├── faces/                   # Training images grouped by person name
-├── face_recognition.py      # Main pipeline script (train + test)
-├── haarcascade_frontalface_default.xml # Cascade model file
-├── test_image.jpeg          # Target image for recognition
-├── output_result.jpg        # Output with bounding boxes and labels
+
+```text
+image_face_recognition/
+├── faces/                          # Training images organized by identity/person
+├── haarcascade_frontalface_default.xml # Haar Cascade model file
+├── face_recognition.py             # Training and evaluation pipeline
+├── test_image.jpeg                 # Target test image for recognition
+├── output_result.jpg               # Annotated output result
 └── .gitignore
-\\\
-
-## Requirements
-- Python 3.x
-- \opencv-python\
-- \opencv-contrib-python\
-- \
-umpy\
-
-Install dependencies:
-\\\ash
-pip install opencv-python opencv-contrib-python numpy
-\\\
-
-## Usage
-1. Place reference face photos in \aces/<PersonName>/\.
-2. Add the image you want to evaluate as \	est_image.jpeg\ (or \	est_image.jpg\).
-3. Run the recognizer:
-\\\ash
-py face_recognition.py
-\\\
-4. View the annotated result saved to \output_result.jpg\.
